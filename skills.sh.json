@@ -1,0 +1,11 @@
+{
+	"$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+	"notGrouped": "bottom",
+	"groupings": [
+		{
+			"title": "WeaveIt",
+			"description": "Persistent memory for Cursor and other agents — Engine MCP retrieve/capture, plus Lattice agent banks.",
+			"skills": ["weaveit", "weaveit-lattice"]
+		}
+	]
+}
