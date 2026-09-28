@@ -39,6 +39,6 @@ Live count is **32** registered tools including deprecated `get_user_memory`. Pr
 
 ## Agent bank (`unshadow_bank_*`)
 
-Only for isolated agent banks. See the **unshadow-bank** skill. Do not mix Capture-pool keys unless the user linked projects.
+Only for agent banks. See the **unshadow-bank** skill. Use the project key for that bank.
 
 Write tools need a `read_write` key.

@@ -6,7 +6,7 @@ description: >-
   decisions. Triggers on personalization, recall, preferences, past work, or saving learnings.
 ---
 
-# Unshadow (Engine MCP)
+# Unshadow
 
 Unshadow is this user’s portable memory. **MCP executes**; this skill is judgment.
 
@@ -35,7 +35,7 @@ Save **durable** facts only (preferences, decisions, goals, milestones). Skip gr
 - Confirmed decision or lasting preference → `memory_save` (`source_type` e.g. `ai_conversation` / `manual_entry`)
 - Substantial Q&A turn (Cursor/Claude chat) → `unshadow_ingest_turn` with the user’s last message **and your full answer**; reuse `conversation_key`
 - Read-only keys cannot write — tell the user to mint a `read_write` key on Integrations
-- Categories are assigned by Engine extract (`preference`, `goal`, `decision`, `skill`, `context`, …). After save, `memory_update` if wording is wrong.
+- Categories are assigned when a memory is saved (`preference`, `goal`, `decision`, `skill`, `context`, …). After save, `memory_update` if wording is wrong.
 
 Longer workflow: [references/capture.md](references/capture.md)
 
