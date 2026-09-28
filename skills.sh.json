@@ -3,9 +3,9 @@
 	"notGrouped": "bottom",
 	"groupings": [
 		{
-			"title": "WeaveIt",
-			"description": "Persistent memory for Cursor and other agents — Engine MCP retrieve/capture, plus Lattice agent banks.",
-			"skills": ["weaveit", "weaveit-lattice"]
+			"title": "Unshadow",
+			"description": "Persistent memory for Cursor and other agents — Engine MCP retrieve/capture, plus agent banks.",
+			"skills": ["unshadow", "unshadow-bank", "unshadow-sdk"]
 		}
 	]
 }

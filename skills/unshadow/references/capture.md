@@ -9,12 +9,12 @@ Save after:
 Do not save:
 
 - Greetings, one-word acks, secrets, passwords, OTPs
-- Full chat dumps (use `weave_ingest_turn` for Q&A; Engine extracts facts)
+- Full chat dumps (use `unshadow_ingest_turn` for Q&A; Engine extracts facts)
 
 Tools:
 
 - `memory_save` — `text` plus optional `source_type` / `source_url`. Engine extract assigns category.
-- `weave_ingest_turn` — `user_text`, `assistant_text`, reuse `conversation_key` for this chat.
+- `unshadow_ingest_turn` — `user_text`, `assistant_text`, reuse `conversation_key` for this chat.
 - `memory_update` — correct wording (re-embeds when fact changes).
 - `memory_forget` — explicit ids only; `forget_all` is blocked on MCP.
 - `memory_tag` / `memory_set_importance` / `memory_add_to_folder` — after you have ids (`memory_list_folders` for folder UUID).

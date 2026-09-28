@@ -1,4 +1,4 @@
-# Engine MCP tools (hosted `mcp.weaveit.app`)
+# Engine MCP tools (hosted `mcp.unshadow.dev`)
 
 Live count is **32** registered tools including deprecated `get_user_memory`. Prefer the names below.
 
@@ -6,8 +6,8 @@ Live count is **32** registered tools including deprecated `get_user_memory`. Pr
 
 | Tool | Use |
 |------|-----|
-| `weave_inject_context` | Prompt-ready pack for the current topic |
-| `weave_context` | Same `/context` with explicit budget fields |
+| `unshadow_inject_context` | Prompt-ready pack for the current topic |
+| `unshadow_context` | Same `/context` with explicit budget fields |
 | `memory_search` | Structured lookup / debug |
 | `memory_get` | Full memory JSON by id |
 | `memory_search_by_date` | Hybrid search + `since`/`until` |
@@ -16,8 +16,8 @@ Live count is **32** registered tools including deprecated `get_user_memory`. Pr
 | `memory_list` | Recent list (`category` optional) |
 | `memory_list_folders` | Folder `{ id, name }` |
 | `memory_folder_contents` | Memories in a folder UUID |
-| `weave_profile` | Profile slice |
-| `weave_memory_surface` | Proactive high-importance suggestions |
+| `unshadow_profile` | Profile slice |
+| `unshadow_memory_surface` | Proactive high-importance suggestions |
 | `get_user_memory` | Deprecated — use inject or search |
 
 ## Write / manage
@@ -25,7 +25,7 @@ Live count is **32** registered tools including deprecated `get_user_memory`. Pr
 | Tool | Use |
 |------|-----|
 | `memory_save` | Extract + store a fact |
-| `weave_ingest_turn` | Archive Q&A then extract |
+| `unshadow_ingest_turn` | Archive Q&A then extract |
 | `memory_update` | Patch fact (re-embeds) |
 | `memory_forget` | Delete listed ids |
 | `memory_tag` | Merge tags |
@@ -37,8 +37,8 @@ Live count is **32** registered tools including deprecated `get_user_memory`. Pr
 
 `weave_export_data`, `weave_privacy_settings`, `weave_digest`
 
-## Lattice (`lattice_*`)
+## Agent bank (`unshadow_bank_*`)
 
-Only for isolated agent banks. See the **weaveit-lattice** skill. Do not mix Capture-pool keys unless the user linked projects.
+Only for isolated agent banks. See the **unshadow-bank** skill. Do not mix Capture-pool keys unless the user linked projects.
 
 Write tools need a `read_write` key.
