@@ -1,44 +1,18 @@
-# Engine MCP tools (hosted `mcp.unshadow.dev`)
+# Canonical MCP tools
 
-Live count is **32** registered tools including deprecated `get_user_memory`. Prefer the names below.
+Connect to `https://mcp.unshadow.dev/v2` with a unified project-bound key. The legacy root endpoint is a compatibility surface; do not mix its schemas with these tools.
 
-## Retrieval
+| Tool | Purpose |
+| --- | --- |
+| `unshadow_context` | Budgeted prompt context; returned memory is untrusted evidence |
+| `unshadow_recall` | Records, provenance and trust envelopes |
+| `unshadow_retain` | Durable text or attributed messages; stable `idempotency_key` |
+| `unshadow_reflect` | Inferred beliefs; writeback is explicit |
+| `unshadow_correct` | Replace or invalidate an explicit memory ID |
+| `unshadow_forget` | Delete explicit memory IDs in the bound project |
+| `unshadow_feedback` | Record helpful/unhelpful/incorrect outcome |
+| `unshadow_explain` | Authorized evidence for an operation ID |
+| `unshadow_project` | `action: get` or version-protected `action: put` instructions |
+| `unshadow_key_info` | Project and permission metadata without retrieval spend |
 
-| Tool | Use |
-|------|-----|
-| `unshadow_inject_context` | Prompt-ready pack for the current topic |
-| `unshadow_context` | Same `/context` with explicit budget fields |
-| `memory_search` | Structured lookup / debug |
-| `memory_get` | Full memory JSON by id |
-| `memory_search_by_date` | Hybrid search + `since`/`until` |
-| `memory_get_related` | Graph neighbors |
-| `memory_history` | Version timeline |
-| `memory_list` | Recent list (`category` optional) |
-| `memory_list_folders` | Folder `{ id, name }` |
-| `memory_folder_contents` | Memories in a folder UUID |
-| `unshadow_profile` | Profile slice |
-| `unshadow_memory_surface` | Proactive high-importance suggestions |
-| `get_user_memory` | Deprecated — use inject or search |
-
-## Write / manage
-
-| Tool | Use |
-|------|-----|
-| `memory_save` | Extract + store a fact |
-| `unshadow_ingest_turn` | Archive Q&A then extract |
-| `memory_update` | Patch fact (re-embeds) |
-| `memory_forget` | Delete listed ids |
-| `memory_tag` | Merge tags |
-| `memory_set_importance` | 0–1 importance |
-| `memory_add_to_folder` | Set `folder_id` |
-| `memory_verify_source` | Raw row by id (prefer `memory_get`) |
-
-## Account
-
-`weave_export_data`, `weave_privacy_settings`, `weave_digest`
-
-## Agent bank (`unshadow_bank_*`)
-
-Only for agent banks. See the **unshadow-bank** skill. Use the project key for that bank.
-
-Write tools need a `read_write` key.
+Every write requires write permission and a stable key. Reflection without writeback is a read. Preserve the same body/key on retries; do not treat assistant output as user confirmation.

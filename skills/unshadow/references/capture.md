@@ -1,24 +1,7 @@
 # Capture workflow
 
-Save after:
+Save explicit user requests and authorized durable preferences/decisions through `unshadow_retain`. Example: `{text:"Synthetic preference: use pnpm", source_type:"manual_entry", idempotency_key:"event-123:retain"}`. Retry the identical payload with the identical key. Use separate keys for different operations. Preserve role attribution for message arrays; assistant claims remain inferred.
 
-- The user confirms a decision (“we’ll use X”)
-- They state a lasting preference or goal
-- A milestone or durable fact about their work
+Automatic turn capture is off unless the operator explicitly opts in. If a Cursor hook owns capture, do not automatically send message arrays or conversation ingestion; manual durable text saves remain available. Skip secrets, OTPs, credentials, greetings and ephemeral noise.
 
-Do not save:
-
-- Greetings, one-word acks, secrets, passwords, OTPs
-- Full chat dumps (use `unshadow_ingest_turn` for Q&A; durable facts are saved from the turn)
-
-Tools:
-
-- `memory_save` — `text` plus optional `source_type` / `source_url`. Category is assigned when the memory is saved.
-- `unshadow_ingest_turn` — `user_text`, `assistant_text`, reuse `conversation_key` for this chat.
-- `memory_update` — correct wording (re-embeds when fact changes).
-- `memory_forget` — explicit ids only; `forget_all` is blocked on MCP.
-- `memory_tag` / `memory_set_importance` / `memory_add_to_folder` — after you have ids (`memory_list_folders` for folder UUID).
-
-Read-only keys cannot write. Point the user to Integrations for a `read_write` key.
-
-Categories Engine may assign: `preference`, `goal`, `skill`, `context`, `event`, `person`, `decision`, `task`, `quote`, `insight`, `project`, `location`.
+`unshadow_correct({memory_id, replacement, idempotency_key})` replaces a statement; explicit `invalidate:true` invalidates it instead. `unshadow_forget({memory_ids, idempotency_key})` deletes actual IDs. Read-only credentials reject writes. Conflicts require inspecting the original event/payload rather than changing keys to force a second effect.
